@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    while (true) {
+        var ye = prompt("你好，我是传智小娜，你的语音助手~~~~~~~\n" +
+            "输入《编号》或《关键词》选择功能，输入q退出聊天\n" +
+            " 1.计算《总和》\n" +
+            " 2.获取《时间》\n" +
+            " 3.讲个《笑话》\n");
+        if (ye === 'q') {
+            alert('再见');
+            break;
+        }
+        switch (ye) {
+            case '1':
+            case '总和':
+                var number = prompt('请输入你要求和的数字，以逗号隔开，例如： 1,2,3,4');
+                var shu = number.split(',');
+                var sum = 0;
+                for (var i = 0; i < shu.length; i++) {
+                    sum += parseFloat(shu[i]);
+                }
+                alert('总数是' + sum);
+                break;
+            case '2':
+            case '时间':
+                var date = new Date();
+                var year = date.getFullYear();
+                var month = date.getMonth() + 1;
+                var day = date.getDate();
+                var hour = date.getHours();
+                var minute = date.getMinutes();
+                var second = date.getSeconds();
+                month = month < 10 ? '0' + month : month;
+                day = day < 10 ? '0' + day : day;
+                hour = hour < 10 ? '0' + hour : hour;
+                minute = minute < 10 ? '0' + minute : minute;
+                second = second < 10 ? '0' + second : second;
+                var time = (year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + second);
+                alert('北京时间是' + time);
+                break;
+            case '3':
+            case '笑话':
+                var hua = ['笑话1', '笑话2', '笑话3', '笑话4', '笑话6', '笑话5', ]
+                var sui = Math.floor(Math.random() * hua.length);
+                alert(hua[sui]);
+                break;
+            default:
+                alert('one more again');
+                break;
+        }
+    }
+</script>
+
+</html>

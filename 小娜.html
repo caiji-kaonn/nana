@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>小娜</title>
+</head>
+
+<body>
+</body>
+<script>
+    // 用自定义构建函数封装小娜的各个功能：
+    function Xiaona() {
+        //  1.询问功能,用行为来封装：  this.行为名= function(){};
+        this.ask = function () {
+            var zi1 = prompt("你好，我是传智小娜，你的语音助手~~~~~~~\n" +
+                "输入《编号》或《关键词》选择功能，输入q退出聊天\n" +
+                " 1.计算《总和》\n" +
+                " 2.获取《时间》\n" +
+                " 3.讲个《笑话》\n");
+            return zi1;
+        }
+        //    2.计算总和
+        this.zonghe = function () {
+            var numbers = prompt('请输入你要求和的数字，以逗号隔开，例如： 1,2,3,4');
+            var arr = numbers.split(',');
+            var sum = 0;
+            for (var i = 0; i < arr.length; i++) {
+                sum += parseFloat(arr[i]);
+            }
+            alert('总数是' + sum);
+            return sum;
+        }
+        //  3.时间
+        this.time1 = function () {
+            var date = new Date();
+            var year = date.getFullYear();
+            var month = date.getMonth() + 1;
+            var day = date.getDate();
+            var hour = date.getHours();
+            var minute = date.getMinutes();
+            var second = date.getSeconds();
+            if (month < 10) {
+                month = '0' + month;
+            }
+            if (day < 10) {
+                day = '0' + day;
+            }
+            if (hour < 10) {
+                hour = '0' + hour;
+            }
+            if (minute < 10) {
+                minute = '0' + minute;
+            }
+            if (second < 10) {
+                second = '0' + second;
+            }
+            var time = year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + second;
+            alert('时间是' + time);
+            return time;
+        }
+        this.xiaohua = function () {
+            var arr = ['笑话1', '笑话2', '笑话3', '笑话4'];
+            var r = Math.floor(Math.random() * arr.length);
+            alert(arr[r]);
+            return arr[r];
+        }
+    }
+    var xiaona = new Xiaona();
+    
+    while (true) {
+        // 把询问功能引入到这里，需引入一个值，因为这个下面也需要。
+        var zi = xiaona.ask();
+        if (zi === 'q') {
+            alert('你已经不爱小娜了吗？');
+            break;
+        }
+        switch (zi) {
+            case '1':
+            case '总和':
+                xiaona.zonghe();
+                break;
+            case '2':
+            case '时间':
+                xiaona.time1();
+                break;
+            case '3':
+            case '笑话':
+                xiaona.xiaohua();
+                break;
+            default:
+                alert('有种再说一遍');
+                break;
+        }
+    }
+</script>
+
+</html>

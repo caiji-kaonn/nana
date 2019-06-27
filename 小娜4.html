@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>小娜4</title>
+</head>
+
+<body>
+
+</body>
+<script>
+
+
+
+
+
+
+
+    function Xiaona() {
+        this.ask = function () {
+            var che = prompt("你好，我是传智小娜，你的语音助手~~~~~~~\n" +
+                "输入《编号》或《关键词》选择功能，输入q退出聊天\n" +
+                " 1.计算《总和》\n" +
+                " 2.获取《时间》\n" +
+                " 3.讲个《笑话》\n");
+                return che;
+        }
+        this.qiu = function () {
+            var number = prompt('请输入你要求和的数字，以逗号隔开，例如： 1,2,3,4');
+            var n = number.split(',');
+            var sum = 0;
+            for (var i = 0; i < n.length; i++) {
+                sum += parseFloat(n[i]);
+            }
+            
+            alert('总数是' + sum);
+            return sum;
+        }
+        this.time = function () {
+            var date = new Date();
+            var year = date.getFullYear();
+            var month = date.getMonth() + 1;
+            var day = date.getDate();
+            var hour = date.getHours();
+            var minute = date.getMinutes();
+            var second = date.getSeconds();
+            month = month < 10 ? '0' + month : month;
+            day = day < 10 ? '0' + day : day;
+            hour = hour < 10 ? '0' + hour : hour;
+            minute = minute < 10 ? '0' + minute : minute;
+            second = second < 10 ? '0' + second : second;
+            var time = (year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + second);
+            alert('北京时间是' +time);
+            return time;
+        }
+        this.xiaohua = function () {
+            var joke = ['笑话1', '笑话2', '笑话3', '笑话4', '笑话5'];
+            var he = Math.floor(Math.random() * joke.length);
+            alert(joke[he]);
+            return joke[he];
+            
+        }
+    }
+
+    var xiaona = new Xiaona();
+    while (true) {
+        var che1 =xiaona.ask();
+        if (che1 === 'q') {
+            alert('再见');
+            break;
+        }
+        switch (che1) {
+            case '1':
+            case '总和':
+                xiaona.qiu();
+                break;
+            case '2':
+            case '时间':
+                xiaona.time()
+                break;
+            case '3':
+            case '笑话':
+                xiaona.xiaohua();
+                break;
+            default:
+                alert('滚蛋');
+                break;
+        }
+    }
+</script>
+
+</html>
