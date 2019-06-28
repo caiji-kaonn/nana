@@ -11,53 +11,63 @@
 </body>
 <script>
     // 1.封装时间的格式：
-    function shijian(number) {
-        var zhi = number < 10 ? '0' + number : number;
-        return zhi;
+    // function shijian(number) {
+    //     var zhi = number < 10 ? '0' + number : number;
+    //     return zhi;
 
-    }
+    // }
 
-    function jian() {
-        var date = new Date();
-        var year = date.getFullYear();
-        var month = date.getMonth() + 1;
-        var day = date.getDate();
-        var hour = date.getHours();
-        var minute = date.getMinutes();
-        var second = date.getSeconds();
+    // function jian() {
+    //     var date = new Date();
+    //     var year = date.getFullYear();
+    //     var month = date.getMonth() + 1;
+    //     var day = date.getDate();
+    //     var hour = date.getHours();
+    //     var minute = date.getMinutes();
+    //     var second = date.getSeconds();
 
-        var month = shijian(month);
-        var day = shijian(day);
-        var hour = shijian(hour);
-        var minute = shijian(minute);
-        var second = shijian(second);
-        var time2 = (year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + second);
-        return time2;
-    }
+    //     var month = shijian(month);
+    //     var day = shijian(day);
+    //     var hour = shijian(hour);
+    //     var minute = shijian(minute);
+    //     var second = shijian(second);
+    //     var time2 = (year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + second);
+    //     return time2;
+    // }
 
     // 2.封装总和的格式
-    function zong() {
-        var e = prompt('请输入你要求和的数字，以逗号隔开，例如： 1,2,3,4');
-        var w = e.split(',');
-        var sum = 0;
-        for (var i = 0; i < w.length; i++) {
-            sum += parseFloat(w[i]);
-        }
-        return sum;
-    }
+    // function zong() {
+    //     var e = prompt('请输入你要求和的数字，以逗号隔开，例如： 1,2,3,4');
+    //     var w = e.split(',');
+    //     var sum = 0;
+    //     for (var i = 0; i < w.length; i++) {
+    //         sum += parseFloat(w[i]);
+    //     }
+    //     return sum;
+    // }
 
     //    3.封装笑话
-    function xiaohua() {
-        var joke = ['笑话1', '笑话2', '笑话3', '笑话4', '笑话5'];
-        var k = Math.floor(Math.random() * joke.length);
-        return joke[k];
-    }
-    while (true) {
-        var hey = prompt("你好，我是传智小娜，你的语音助手~~~~~~~\n" +
+    // function xiaohua() {
+    //     var joke = ['笑话1', '笑话2', '笑话3', '笑话4', '笑话5'];
+    //     var k = Math.floor(Math.random() * joke.length);
+    //     return joke[k];
+    // }
+    function Nana(){
+     this.ask=function(){
+        var hey1 = prompt("你好，我是传智小娜，你的语音助手~~~~~~~\n" +
             "输入《编号》或《关键词》选择功能，输入q退出聊天\n" +
             " 1.计算《总和》\n" +
             " 2.获取《时间》\n" +
             " 3.讲个《笑话》\n");
+          return hey1;
+     }
+     this.zonghe=function(){
+         
+     }
+    }
+    var nana=new Nana();
+    while (true) {
+        var hey=nana.ask();
         if (hey === 'q') {
             alert('再见');
             break;

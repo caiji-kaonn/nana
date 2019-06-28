@@ -10,12 +10,52 @@
 
 </body>
 <script>
+    function Nana() {
+        this.ask = function () {
+            var ho = prompt("你好，我是传智小娜，你的语音助手~~~~~~~\n" +
+                "输入《编号》或《关键词》选择功能，输入q退出聊天\n" +
+                " 1.计算《总和》\n" +
+                " 2.获取《时间》\n" +
+                " 3.讲个《笑话》\n");
+            return ho;
+        }
+        this.zonghe = function () {
+            var number = prompt('请输入你要求和的数字，以逗号隔开，例如： 1,2,3,4');
+            var dian = number.split(',');
+            var sum = 0;
+            for (var i = 0; i < dian.length; i++) {
+                sum += parseFloat(dian[i]);
+            }
+            alert('总数是' + sum);
+            return sum;
+        }
+        this.shijian = function () {
+            var date = new Date();
+            var year = date.getFullYear();
+            var month = date.getMonth() + 1;
+            var day = date.getDate();
+            var hour = date.getHours();
+            var minute = date.getMinutes();
+            var second = date.getSeconds();
+            month = month < 10 ? '0' + month : month;
+            day = day < 10 ? '0' + day : day;
+            hour = hour < 10 ? '0' + hour : hour;
+            minute = minute < 10 ? '0' + minute : minute;
+            second = second < 10 ? '0' + second : second;
+            var time = (year + '-' + month + '' + day + ' ' + hour + ':' + minute + ':' + second)
+            alert('北京是' + time);
+            return time;
+        }
+        this.joke = function () {
+            var xiao = ['笑话1', '笑话2', '笑话3', '笑话4']
+            var r = Math.floor(Math.random() * xiao.length);
+            alert(xiao[r]);
+            return xiao[r];
+        }
+    }
+    var nana = new Nana();
     while (true) {
-        var fo = prompt("你好，我是传智小娜，你的语音助手~~~~~~~\n" +
-            "输入《编号》或《关键词》选择功能，输入q退出聊天\n" +
-            " 1.计算《总和》\n" +
-            " 2.获取《时间》\n" +
-            " 3.讲个《笑话》\n");
+        var fo = nana.ask();
         if (fo === 'q') {
             alert('你已经不爱小娜了吗？');
             break;
@@ -23,36 +63,15 @@
         switch (fo) {
             case '1':
             case '总和':
-                var number = prompt('请输入你要求和的数字，以逗号隔开，例如： 1,2,3,4');
-                var dian = number.split(',');
-                var sum = 0;
-                for (var i = 0; i < dian.length; i++) {
-                    sum += parseFloat(dian[i]);
-                }
-                alert('总数是' + sum);
+                nana.zonghe();
                 break;
             case '2':
             case '时间':
-                var date = new Date();
-                var year = date.getFullYear();
-                var month = date.getMonth() + 1;
-                var day = date.getDate();
-                var hour = date.getHours();
-                var minute = date.getMinutes();
-                var second = date.getSeconds();
-                month = month < 10 ? '0' + month : month;
-                day = day < 10 ? '0' + day : day;
-                hour = hour < 10 ? '0' + hour : hour;
-                minute = minute < 10 ? '0' + minute : minute;
-                second = second < 10 ? '0' + second : second;
-                var time = (year + '-' + month + '' + day + ' ' + hour + ':' + minute + ':' + second)
-                alert('北京是' + time);
+                nana.shijian();
                 break;
             case '3':
             case '笑话':
-                var xiao = ['笑话1', '笑话2', '笑话3', '笑话4']
-                var r = Math.floor(Math.random() * xiao.length);
-                alert(xiao[r]);
+            nana.joke();
                 break;
             default:
                 alert('有种再说一遍');
